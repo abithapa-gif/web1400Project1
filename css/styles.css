@@ -1,442 +1,97 @@
-/* 
-   DESIGN SYSTEM
-   Color palette and spacing scale used across all pages.
-   These custom properties ensure consistency and allow
-   easy global updates.
- */
-
-:root {
-  /* ----- Color palette (5-color system) ----- */
-  --color-primary: #333;
-  --color-accent: #962a2a;
-  --color-dark: #332727;
-  --color-light: #FFFACD;
-  --color-white: #ffffff;
-
-  /* ----- Spacing scale ----- */
-  --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 3rem;
-}
-
-/* 
-   RESET & GLOBAL BOX MODEL
-   Removes default browser spacing and enforces
-   consistent box sizing across all elements.
- */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* 
-   BASE TYPOGRAPHY & BODY STYLES
- */
-
 body {
-  font-family: "Open Sans", sans-serif;
-  background: var(--color-light);
-  color: var(--color-dark);
-  line-height: 1.6;
-  padding-top: 40px; /* offset for fixed promo banner */
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 20px;
 }
 
-/* 
-   LAYOUT UTILITIES
-   Reusable layout container used to center content and
-   constrain max width across pages.
- */
-
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
+main {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
 }
 
-/* 
-   HEADER & NAVIGATION
-   
-   Flexbox layout for site branding and navigation menu.
- */
-
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
-  background: var(--color-dark);
-  color: white;
+h1 {
+    text-align: center;
 }
 
-.logo {
-  width: 200px;
-  flex-shrink: 0;
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-.site-header {
-  background: var(--color-primary);
-  color: var(--color-white);
-  top: 40px;
+label {
+    margin-top: 15px;
+    font-weight: bold;
 }
 
-.header-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-sm) 0;
+input,
+select,
+textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
-.nav-list {
-  list-style: none;
-  display: flex;
-  gap: var(--space-md);
+/* Helper text */
+small {
+    color: #666;
+    font-size: 12px;
 }
 
-.nav-list a {
-  color: white;
-  text-decoration:none;
-  font-weight: 600;
+/* Fieldset styling */
+fieldset {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
 }
 
-/* Navigation hover interaction */
-.nav-list :hover{
-  transform: scale(1.10);
+legend {
+    font-weight: bold;
 }
 
-/* Current page indicator */
-.nav-list a.active {
-  background: var(--color-accent);
-  padding: 5px 10px;
-  border-radius: 4px;
+/* Focus state */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #0077cc;
+    border-color: #0077cc;
 }
 
-/* 
-   PROMO BANNER (FIXED ELEMENT)
-*/
-
-.promo-banner {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: var(--color-accent);
-  text-align: center;
-  padding: 0.5rem;
-  font-weight: 600;
-  z-index: 1000;
-  color:var(--color-white);
+/* Invalid state */
+input:invalid,
+textarea:invalid {
+    border-color: red;
 }
 
-/* 
-   FLEXBOX CONTENT LAYOUTS
-   Shared flex layouts for cards, galleries, and menus.
- */
-
-.features,
-.gallery-flex,
-.menu-layout {
-  display: flex;
-  gap: var(--space-md);
-  flex-wrap: wrap;
-  margin: var(--space-lg) 0;
+/* Button styles */
+button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/* 
-   CARD COMPONENT
-*/
-
-.card {
-  background:var(--color-white);
-  padding: var(--space-md);
-  border: 2px solid #ddd;
-  flex: 1 1 300px;
-  border-radius: 6px;
-  box-shadow: 0 10px 6px rgba(0,0,0,0.2);
+button:hover {
+    background-color: #005fa3;
 }
 
-/*
-   IMAGE & GALLERY COMPONENTS
-*/
-
-.gallery-flex{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
+button:active {
+    background-color: #004080;
 }
 
-.gallery-flex img {
-  width: 250px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease;
-}
-
-.gallery-flex  img:hover {
-  transform: scale(1.05);
-}
-
-.gallery-item img,
-.menu-image-container img {
-  width: 100%;
-  border-radius: 6px;
-}
-
-figcaption {
-  color: var(--color-dark);
-  font-weight: 600;
-}
-
-/* Page-specific caption override */
-.index-page figcaption{
-  color:var(--color-dark);
-}
-
-/*
-   FLOAT IMAGE (TEXT WRAPPING)
-   ------------------------------------------------------
-   Used only for editorial wrapping in About page.
-    */
-
-.float-image {
-  float: left;
-  width: 250px;
-  margin: 0 var(--space-md) var(--space-md) 0;
-  border-radius: 6px;
-}
-
-.about-section::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-/* =
-   TABLE STYLES (CONTACT PAGE)
-    */
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: var(--space-md) 0;
-  background: var(--color-white);
-}
-
-caption {
-  font-weight: 600;
-  margin-bottom: var(--space-sm);
-  text-align: left;
-}
-
-th,
-td {
-  padding: var(--space-sm);
-  border: 1px solid #ddd;
-}
-
-thead {
-  background: var(--color-primary);
-  color: var(--color-white);
-}
-
-tbody tr:nth-child(even) {
-  background: #f2f2f2;
-}
-
-/*
-   FOOTER
-*/
-
-.site-footer {
-  background: var(--color-dark);
-  color: var(--color-white);
-  text-align: center;
-  padding: var(--space-sm) 0;
-}
-
-/*
-   BUTTON COMPONENT
-*/
-
-.btn-primary{
-  background: var(--color-accent);
-  color: var(--color-white);
-  padding: 0.2rem 1.2rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.btn-primary:hover{
- background: #d11212;
-}
-
-/* 
-   STICKY UTILITIES (FLOATING ACTION LINKS)
-  */
-
-.sticky-link {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--color-accent);
-  color: var(--color-white);
-  padding: 0.8rem 1.2rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 10px 6px rgba(0,0,0,0.2);
-  z-index: 1000;
-  transition: background 0.3s;
-}
-
-.sticky-link:hover {
-  background: #d11212;
-}
-
-.sticky-calllink {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #1bbe0c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 24px;
-  font-weight: bold;
-  z-index: 1000;
-  transition: transform 0.2s, background 0.3s;
-}
-
-.sticky-calllink:hover {
-  background: #046414;
-  transform: scale(1.1);
-}
-
-/*
-   GALLERY GRID (ABOUT + MENU)
-*/
-
-.gallery-grid {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin: 3rem 0;
-}
-
-.gallery-grid img {
-  width: 250px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease;
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.05);
-}
-
-/*
-   MENU PAGE STYLES
-*/
-
-.menu-page {
-  background-image: url("../images/pizzabackground.jpg");
-  background-size:cover;
-  background-position:center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: #ddd;
-}
-
-.menu-page figure {
-  display: flex;
-  color: #202020;
-  flex-direction: column;
-  align-items: center;
-  flex: 1 1 250px;
-  max-width: 260px;
-  background: white;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-  gap: 0.6rem;
-}
-
-.menuheadline{
-  text-align: center;
-}
-
-/* 
-   SHOWCASE SECTION for contact page and menu
-*/
-
-.showcase {
-  background-image: url("../images/contact.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.showcase-overlay {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 2rem 3rem;
-  text-align: center;
-  border-radius: 10px;
-  color: white;
-}
-
-.showcase-overlay h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.showcase .btn-primary {
-  display: inline-block;
-  margin: 0.5rem;
-  padding: 0.8rem 1.5rem;
-}
-
-/*
-   CSS-ONLY INTERACTION (MENU EXPAND/COLLAPSE)
-*/
-
-.menu-desc {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
-  padding: 0 0;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #444;
-  line-height: 1.4;
-}
-
-.menu-card:target .menu-desc {
-  max-height: 200px;
-  padding: 0.5rem 0;
-}
-
-.close-desc {
-  display: none;
-  margin-top: 0.5rem;
-}
-
-.menu-card:target .close-desc {
-  display: inline-block;
+/* Success message */
+.success {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    border-radius: 5px;
 }
